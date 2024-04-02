@@ -8,6 +8,7 @@
  * for details.
  *
  * Author: Joerg Roedel <jroedel@suse.de>
+ *         Chenxi Mao <chenxi.mao2013@gmail.com>
  */
 
 #include <algorithm>
@@ -112,14 +113,11 @@ static int split_trim(vector<string> &items, const char *delim,
 }
 
 static const char *domains[] = {
-	"suse.de",
-	"suse.cz",
-	"suse.com",
-	"novell.com",
+	"chinaredflag.cn",
 	0,
 };
 
-static bool is_suse_email(const string &email)
+static bool is_chinaredflag_email(const string &email)
 {
 	size_t pos = email.find_first_of("@");
 
@@ -280,7 +278,7 @@ static void parse_patch(const string &path,
 				if (email[len - 1] == '>')
 					email = email.substr(0, len - 1);
 
-				if (is_suse_email(email))
+				if (is_chinaredflag_email(email))
 					committer = email;
 			}
 		}
